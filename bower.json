@@ -1,0 +1,21 @@
+{
+  "name": "movies-react",
+  "version": "0.0.0",
+  "authors": [
+    "Rickard <rickard.laurin@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.12.2"
+  },
+  "devDependencies": {
+    "mrwhite-scss-mixins": "~0.10.0"
+  }
+}
