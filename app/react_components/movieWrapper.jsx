@@ -1,28 +1,67 @@
 /** @jsx React.DOM */
 
 var React     = require('react');
-var MovieList = require('./movieList.jsx');
-var request   = require('request');
-var Sidebar   = require('./sidebar.jsx');
+var StatsList = require('./statsList.jsx');
+var Time      = require('./time.jsx');
+var Totals    = require('./totals.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return { data: [] };
+    return {
+      data: {
+        actors: [],
+        directors: [],
+        composers: [],
+        genres: [],
+        production_companies: [],
+        languages: [],
+        time: {
+          minutes: 0
+        },
+        numbers: {}
+      }
+    };
   },
   componentWillMount: function() {
     var xhr = new XMLHttpRequest();
     xhr.open('get', this.props.url, true);
     xhr.onload = function() {
-      var data = JSON.parse(xhr.responseText);
-      this.setState({ data: data.results });
+      var result = JSON.parse(xhr.responseText);
+      this.setState({ data: result });
     }.bind(this);
     xhr.send();
   },
+  cleanAndCapitalize: function (name) {
+    name = name.replace(/\_/g,' ');
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  },
   render: function () {
+    var self = this;
+    var lists = [
+      'actors',
+      'directors',
+      'composers',
+      'languages',
+      'production_companies',
+      'genres'
+    ];
+
+    var statsLists = lists.map(function (name) {
+      return (
+        <StatsList
+          title={self.cleanAndCapitalize(name)}
+          items={self.state.data[name]}
+          type="movies"></StatsList>
+      );
+    })
+
     return (
-      <div className="movies">
-        <Sidebar />
-        <MovieList data={this.state.data} />
+      <div className="stats">
+        <Time data={this.state.data.time} />
+        <Totals numbers={this.state.data.numbers} total={this.state.data.total} />
+        <div className="stats__lists">
+          {statsLists}
+        </div>
       </div>
     );
   }

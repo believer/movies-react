@@ -1,0 +1,42 @@
+// ------------------------------------------------------------
+// Time
+//
+// ------------------------------------------------------------
+
+.time {
+  @include size(100%);
+
+  background: #262626;
+  position: relative;
+}
+
+.time__box {
+  @include center(both);
+
+  border: 3px solid #fff;
+  color: #fff;
+  font-size: 32px;
+  margin: 0 auto;
+  padding: 15px 20px 20px;
+
+  @include mobile {
+    text-align: center;
+    width: 70%;
+  }
+}
+
+.time__list {
+  li {
+    @include desktop {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+.time__subtime {
+  color: #666;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+}

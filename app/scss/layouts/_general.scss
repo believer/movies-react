@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: rgb(51,59,66);
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  padding: 0;
+}
+
+.inner {
+  @include center(both);
+
+  width: 900px;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  .left,
+  .right {
+    float: left;
+    vertical-align: middle;
+    width: 50%;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .right {
+    @include mobile {
+      margin-top: 20px;
+    }
+  }
+}

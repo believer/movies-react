@@ -6,12 +6,12 @@ var sass       = require('gulp-sass');
 var webserver  = require('gulp-webserver');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var plumber = require('gulp-plumber');
 
 gulp.task('webserver', ['browserify', 'scss'], function() {
   gulp.src('dist')
     .pipe(webserver({
-      livereload: true,
-      open: true
+      livereload: true
     }));
 });
 
@@ -32,7 +32,8 @@ gulp.task('uglify', ['browserify'], function () {
 })
 
 gulp.task('scss', function () {
-  return gulp.src('./app/scss/main.scss')
+  return gulp.src('./app/scss/screen.scss')
+    .pipe(plumber())
     .pipe(sass())
     .pipe(gulp.dest('./dist'))
 });
@@ -40,11 +41,13 @@ gulp.task('scss', function () {
 gulp.task('watch', function () {
   gulp.watch(['./app/**/*.jsx', './app/**/*.js'], ['browserify', 'uglify']);
   gulp.watch(['./app/scss/**/*.scss'], ['scss']);
-  gulp.watch(['./app/index.html'], ['copy']);
+  gulp.watch(['./app/**/*.html'], ['copy']);
 })
 
 gulp.task('copy', function () {
-  gulp.src('./app/index.html')
+  gulp.src([
+    './app/index.html',
+    ])
     .pipe(gulp.dest('dist'));
 });
 

@@ -1,36 +1,6 @@
-@import "../../bower_components/mrwhite-scss-mixins/reset";
-@import "../../bower_components/mrwhite-scss-mixins/mixins";
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  color: rgb(51,59,66);
-  font-family: 'Helvetica Neue', sans-serif;
-  font-weight: 300;
-  padding: 0;
-}
-
 //
-// Sidebar
+// Movie
 // --------------------------------------------------
-.sidebar {
-  background: rgb(36,181,222);
-  float: left;
-  height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 18%;
-
-  @include mobile {
-    display: none;
-  }
-}
-
 .movies__list {
   @include desktop {
     float: left;
@@ -43,9 +13,6 @@ body {
   }
 }
 
-//
-// Movie
-// --------------------------------------------------
 .movie {
   @include desktop {
     float: left;

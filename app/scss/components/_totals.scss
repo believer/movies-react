@@ -1,0 +1,34 @@
+// ------------------------------------------------------------
+// Totals
+//
+// ------------------------------------------------------------
+
+.totals {
+  @include size(100%);
+
+  background: #5E9FA3;
+  position: relative;
+}
+
+.totals__huge {
+  color: #fff;
+  font-size: 120px;
+  text-align: center;
+}
+
+.totals__big {
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.totals__list {
+  color: #fff;
+  font-size: 21px;
+  text-align: center;
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}

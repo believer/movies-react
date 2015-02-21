@@ -1,0 +1,31 @@
+// ------------------------------------------------------------
+// Lists
+//
+// ------------------------------------------------------------
+
+.list {
+  float: left;
+  margin-right: 2%;
+  width: 32%;
+  
+  @include desktop {
+    &:nth-child(3n+3) { margin-right: 0; }
+    &:nth-child(n+4) { margin-top: 2%;}
+  }
+
+  li {
+    &:not(:last-child) { margin-bottom: 10px; }
+  }
+
+  @include mobile {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+}
+
+.list__subtitle {
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}

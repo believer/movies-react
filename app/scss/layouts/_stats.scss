@@ -1,0 +1,22 @@
+// ------------------------------------------------------------
+// Stats
+//
+// ------------------------------------------------------------
+
+.stats {
+  height: 100%;
+
+  @include mobile {
+    margin: 0;
+  }
+}
+
+.stats__lists {
+  margin: 0 auto;
+  padding: 40px;
+  width: 900px;
+
+  @include mobile {
+    width: 100%;
+  }
+}
