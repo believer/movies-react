@@ -47,6 +47,7 @@ gulp.task('watch', function () {
 gulp.task('copy', function () {
   gulp.src([
     './app/index.html',
+    './bower_components/fontawesome/fonts/*'
     ])
     .pipe(gulp.dest('dist'));
 });

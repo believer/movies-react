@@ -29,3 +29,22 @@
   font-weight: bold;
   margin-top: 5px;
 }
+
+.list__show-more {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+
+  &:after {
+    content: $fa-var-angle-up;
+    font-family: 'FontAwesome';
+    margin-left: 10px;
+  }
+
+  &.open {
+    &:after {
+      content: $fa-var-angle-down;
+    }
+  }
+}

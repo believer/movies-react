@@ -16,7 +16,7 @@ module.exports = React.createClass({
         production_companies: [],
         languages: [],
         time: {
-          minutes: 0
+          adjustedMinutes: 0
         },
         numbers: {}
       }
