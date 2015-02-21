@@ -1,8 +1,8 @@
+$fa-font-path: '';
+
 @import "../../bower_components/mrwhite-scss-mixins/reset";
 @import "../../bower_components/mrwhite-scss-mixins/mixins";
 @import "../../bower_components/fontawesome/scss/font-awesome";
-
-$fa-font-path: '';
 
 @import 'modules/all';
 @import 'patterns/all';

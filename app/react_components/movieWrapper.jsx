@@ -46,9 +46,10 @@ module.exports = React.createClass({
       'genres'
     ];
 
-    var statsLists = lists.map(function (name) {
+    var statsLists = lists.map(function (name, i) {
       return (
         <StatsList
+          key={i}
           title={self.cleanAndCapitalize(name)}
           items={self.state.data[name]}
           type="movies"></StatsList>
