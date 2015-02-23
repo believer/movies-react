@@ -17,7 +17,7 @@ module.exports = React.createClass({
             <li>{hours} {hours === 1 ? 'hour' : 'hours'}</li>
             <li>{minutes} {minutes === 1 ? 'minute' : 'minutes'}</li>
           </ul>
-          <div className="time__subtime">... or {this.props.data.adjustedMinutes} minutes with rewatches</div>
+          <div className="time__subtime">... or {this.props.data.adjustedMinutes} minutes including rewatches</div>
         </div>
       </div>
     );
