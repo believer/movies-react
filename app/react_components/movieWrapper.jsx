@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var React     = require('react');
+var addons = require('react-addons');
 var StatsList = require('./statsList.jsx');
 var Time      = require('./time.jsx');
 var Totals    = require('./totals.jsx');
@@ -42,6 +43,11 @@ module.exports = React.createClass({
   },
   render: function () {
     var self = this;
+    var cx = addons.classSet;
+    var classes = cx({
+      'wrapper': true,
+      'wrapper--fadein': this.state.isLoaded
+    });
     var lists = [
       'actors',
       'directors',
@@ -62,7 +68,7 @@ module.exports = React.createClass({
     })
 
     return (
-        <div className="stats">
+        <div className={classes}>
           {this.state.isLoaded ?
             <div className="stats">
               <Time data={this.state.data.time} />

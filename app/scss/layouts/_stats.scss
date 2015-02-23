@@ -2,13 +2,15 @@
 // Stats
 //
 // ------------------------------------------------------------
+// 
+.wrapper--fadein {
+  @include animation(fadeIn, 1000ms, ease-in-out);
+}
 
 .stats {
   height: 100%;
 
-  @include mobile {
-    margin: 0;
-  }
+  @include mobile { margin: 0; }
 }
 
 .stats__lists {
@@ -17,7 +19,10 @@
   padding: 40px;
   width: 900px;
 
-  @include mobile {
-    width: 100%;
-  }
+  @include mobile { width: 100%; }
+}
+
+@include keyframes(fadeIn) {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
