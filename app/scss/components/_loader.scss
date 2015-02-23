@@ -1,8 +1,10 @@
 // ------------------------------------------------------------
-// Patterns
+// Loader
 //
 // ------------------------------------------------------------
 
-@import 'loader';
-@import 'time';
-@import 'totals';
+.loader {
+  @include center(both);
+
+  font-size: 60px;
+}

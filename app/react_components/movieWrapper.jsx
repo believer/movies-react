@@ -4,6 +4,7 @@ var React     = require('react');
 var StatsList = require('./statsList.jsx');
 var Time      = require('./time.jsx');
 var Totals    = require('./totals.jsx');
+var Loader = require('./loader.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -19,7 +20,8 @@ module.exports = React.createClass({
           adjustedMinutes: 0
         },
         numbers: {}
-      }
+      },
+      isLoaded: false
     };
   },
   componentWillMount: function() {
@@ -27,7 +29,10 @@ module.exports = React.createClass({
     xhr.open('get', this.props.url, true);
     xhr.onload = function() {
       var result = JSON.parse(xhr.responseText);
-      this.setState({ data: result });
+      this.setState({
+        data: result,
+        isLoaded: true
+      });
     }.bind(this);
     xhr.send();
   },
@@ -57,13 +62,18 @@ module.exports = React.createClass({
     })
 
     return (
-      <div className="stats">
-        <Time data={this.state.data.time} />
-        <Totals numbers={this.state.data.numbers} total={this.state.data.total} />
-        <div className="stats__lists">
-          {statsLists}
+        <div className="stats">
+          {this.state.isLoaded ?
+            <div className="stats">
+              <Time data={this.state.data.time} />
+              <Totals numbers={this.state.data.numbers} total={this.state.data.total} />
+              <div className="stats__lists">
+                {statsLists}
+              </div>
+            </div>
+            : <Loader />
+          }
         </div>
-      </div>
     );
   }
 });
